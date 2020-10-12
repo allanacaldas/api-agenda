@@ -27,17 +27,24 @@ router.get('/agenda/telefone', agendaController.getByPhone);
 @endpoint http://localhost:porta/agenda
 
 */
-
 router.post('/agenda', agendaController.criarContato)
 
 /*
-@route
-@desc
-@acess
-@endpoint
+@route PUT AGENDA
+@desc Atualizar um contato na Agenda
+@acess Public
+@endpoint http://localhost:porta/agenda/id
 */
-
 router.put('/agenda/:id',agendaController.atualizarContato)
+
+/*
+@route PATCH AGENDA
+@desc Atualizar um campo do contato na Agenda
+@acess Public
+@endpoint http://localhost:porta/agenda/id
+*/
+router.patch('/agenda/:id', agendaController.alterarCampo);
+
 
 /*
 @route DELETE agenda
