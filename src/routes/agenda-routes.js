@@ -5,11 +5,18 @@ const agendaController = require("../controller/agenda-controller")
 
 /*
 @route GET agenda
+@desc Retornar todos os contatos cadastrados
+@acess Public
+@endpoint http://localhost:porta/agenda
+*/
+router.get('/agenda', agendaController.getAll);
+
+/*
+@route GET agenda
 @desc Retornar todos os contatos cadastrados no nosso models pelo name
 @acess Public
 @endpoint http://localhost:porta/agenda/nome
 */
-
 router.get('/agenda/nome', agendaController.getByName);
 /*
 @route GET agenda

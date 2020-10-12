@@ -4,6 +4,10 @@ const helpers = require('../helpers/agenda-helpers');
 
 /*================== GET ==================*/
 
+const getAll = (request,response) =>{
+    response.send(contatos)
+}
+
 const getByName = (request, response) => {
     const nome = request.query.nome;
     const nomeProcurado = contatos.find(contato => contato.nome == nome);
@@ -73,13 +77,21 @@ const alterarCampo = (request, response) => {
 
 const deleteById = (request, response) => {
     const { id } = request.params;
+    //RESOLUÇÃO DO GRUPO 
+    // let contatoDesejado = contatos.find(contato => contato.id == id )
+    // let posicao = contatos.indexOf(contatoDesejado)    
+    // // delete contatos[id]
+    // response.send(contatos.splice(posicao,1)
+
+    //RESOLUÇÃO DA PROFESSORA
     const contatosFiltrados = contatos.filter(contato => contato.id != id);
     contatos = contatosFiltrados
-    response.status(204).send(contatos);
+    response.status(200).send(contatos);
 
 }
 
 module.exports = {
+    getAll,
     getByName,
     getByPhone,
     criarContato,
